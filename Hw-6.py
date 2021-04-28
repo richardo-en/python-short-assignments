@@ -1,43 +1,31 @@
-MAXIMUM_ROWS_ALLOWED = 49
-MAXIMUM_COLUMNS_ALLOWED = 204
+#here you have to choose what board size you want
+what_to_chose = input("if you want squer board say SQUER if you want custom size say CUSTOM: ")
 
-def createPlayingBoard(rows, columns):
-    if type(rows) != int or type(columns) != int:
-        return False
-   
-    if rows <= 1 or columns <= 1:
-        return False
+def choose():
+    #you choose squer
+    if what_to_chose == "SQUARE":
+        #we want x * x board so we need just one number
+        column = int(input("choose how many columns: "))
+        #printing all that gaming board
+        for i in range(1 , column + 1):
+            print(str(i) + "|" + "__|" * int(column))
+        print("write AGAIN if you want do it again")
+    #you choose custom
+    if what_to_chose == "CUSTOM":
+        #we want custom size board so we need 2 parameters
+        column = int(input("choose how many columns: "))
+        rows = int(input("choose how many rows: "))
+        if column == rows:
+            print("you should choose SQUARE")
+        #printing that board
+        for i in range(1 , rows + 1):
+            print(str(i) + "|" + "__|" * int(column))
+        print("write AGAIN if you want do it again")
 
-    if rows > MAXIMUM_ROWS_ALLOWED or columns > MAXIMUM_COLUMNS_ALLOWED:
-        return False
+choose()
 
-    for row in range(0, rows):
-        if row % 2 == 0:
-            for column in range(0, columns):
-                if column % 2 == 0:
-                    endChar = ""
-                    if column == columns - 1:
-                        endChar = "\n"
-                    print(" ", end = endChar)
-                else:
-                    print("|", end="")
-
-        else:
-            for column in range(0, columns):
-                endChar = ""
-                if column == columns - 1:
-                    endChar = "\n"
-                print("-", end=endChar)
-    print("")
-    return True
+#here i am calling back choose function 
+while input() == "AGAIN":
+    what_to_chose = input("if you want squer board say SQUER if you want custom size say CUSTOM: ")
+    choose()
     
-
-
-def playingBoardCreated(rows, columns):
-    if(createPlayingBoard(rows, columns)):
-        print('Here is your playing board.')
-    else:
-        print('Err, No playing board for you.')
-
-
-playingBoardCreated(5, 5)
