@@ -2,6 +2,8 @@ def DecimalToBinary(num):
      
     if num >= 1:
         DecimalToBinary(num // 2)
+    elif num <1:
+        print("toto cislo v binarnej sustave sa rovna dvom")
     list.append(num % 2)
  
 while True:
