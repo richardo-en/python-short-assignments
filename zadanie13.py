@@ -23,9 +23,9 @@ while True:
     else:
         while True:
             odpoved2 = str(input("zla odpoved! Chces pokracovat? ano/nie\n"))
-            if odpoved == "nie":
+            if odpoved2 == "nie":
                 exit()
-            elif odpoved == "ano":
+            elif odpoved2 == "ano":
                 break
             else:
                 pass
